@@ -5,15 +5,6 @@
   any_errors_fatal: true
   connection: local
 
-  vars_prompt:
-    - name: username
-      prompt: What is your username?
-      private: no
-
-    - name: password
-      prompt: What is your password? 
-      private: yes 
-  
   tasks:
     - include_role:
         name: ALL_APICS
