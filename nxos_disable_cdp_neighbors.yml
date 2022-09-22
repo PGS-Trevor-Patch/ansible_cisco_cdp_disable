@@ -1,0 +1,21 @@
+---
+vars_prompt:
+    - name: username
+      prompt: What is your username?
+      private: no
+
+    - name: password
+      prompt: What is your password? 
+      private: yes 
+
+tasks:
+  - name: Disable CDP Globally On NXOS
+    cisco.nxos.nxos_command:
+      commands:
+      - configure terminal
+      - no cdp run
+      provider:
+        auth_pass: "{{ password }}"
+        authorize: yes
+        password: "{{ password }}"
+        username: "{{ username}}"      
