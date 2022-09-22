@@ -1,0 +1,31 @@
+---
+- name: Disable CDP Neighbors Playbook
+  hosts: all
+  gather_facts: False
+  any_errors_fatal: true
+  connection: local
+
+  vars_prompt:
+    - name: username
+      prompt: What is your username?
+      private: no
+
+    - name: password
+      prompt: What is your password? 
+      private: yes 
+  
+  tasks:
+    - include_role:
+        name: ALL_APICS
+        include_tasks: aci_disable_cdp_neighbors.yml
+        when: "'aci' in group_names"
+
+    - include_role:
+        name: ALL_NXOS
+        include_tasks: nxos_disable_cdp_neighbors.yml
+        when: "'nxos' in group_names"
+
+    - include_role:
+        name: ALL_IOS
+        include_tasks: ios_disable_cdp_neighbors.yml
+        when: "'ios' in group_names"

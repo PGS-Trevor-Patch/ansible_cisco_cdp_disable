@@ -1,0 +1,28 @@
+---
+all:
+  vars:
+    ansible_connection: network_cli
+    ansible_python_interpreter: ~/VENV/ansible/bin/python
+    ansible_user: user
+
+  children:
+    aci:
+      hosts:
+        site1_apic: 
+          ansible_host: apic.example.com
+        site2_apic: 
+          ansible_host: apic.example.com
+    
+    nxos:
+      hosts:
+        switch1: 
+          ansible_host: X.X.X.X
+        switch2:
+          ansible_host: Y.Y.Y.Y
+
+    ios:
+      hosts:
+        router1: 
+          ansible_host: X.X.X.X
+        router2:
+          ansible_host: Y.Y.Y.Y
