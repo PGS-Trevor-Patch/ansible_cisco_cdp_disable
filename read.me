@@ -1,22 +1,22 @@
-host file
+main.yml
 └───roles
     ├───ALL_APIC
     │   └───tasks
-    │       │   main.yml
+    │       │───hosts.yml
     │       │
     │       └───tasks:
     │               aci_disable_cdp_neighbors.yml
     │
     ├───ALL_NXOS
     │   └───tasks
-    │       │   main.yml
+    │       │───hosts.yml
     │       │
     │       └───tasks:
     │               nxos_disable_cdp_neighbors.yml
     │
     ├───ALL_IOS
     │   └───tasks
-    │       │   main.yml
+    │       │───hosts.yml
     │       │
     │       └───tasks:
     │               ios_disable_cdp_neighbors.yml
